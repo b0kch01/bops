@@ -39,16 +39,22 @@ module.exports = {
             const queue = player.getQueue(interaction.guildId);
 
             if (queue) {
-
                 let queueString = '──┬────\n';
 
-                queue.tracks.slice(0, 9).forEach((track, index) => {
-                    queueString += `\`${index + 1}.\` │ [${shortenQueueTitle(track.title)}](${track.url}) \`${track.duration}\`\n`;
-                });
+                if (queue.tracks.length != 0) {
+                    queue.tracks.slice(0, 9).forEach((track, index) => {
+                        queueString += `\`${index + 1}.\` │ [${shortenQueueTitle(track.title)}](${track.url}) \`${track.duration}\`\n`;
+                    });
+                } else {
+                    queueString = "The queue is empty! Use `/play` to queue more songs!";
+                }
 
-                const seconds = queue.tracks
-                    .map(s => { return s.durationMS; })
-                    .reduce((a, b) => a + b) / 1000;
+                const seconds = (
+                    queue.current.durationMS +
+                    queue.tracks
+                        .map(s => { return s.durationMS; })
+                        .reduce((a, b) => a + b, 0)
+                ) / 1000;
 
                 const hours = Math.floor(seconds / 3600);
                 const minutes = Math.floor((seconds - hours * 3600) / 60);

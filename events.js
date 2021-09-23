@@ -12,8 +12,9 @@ module.exports.createEvents = (client, player) => {
     player.on('trackStart', (queue, track) => {
         const embed = new Discord.MessageEmbed()
             .setColor("#34c759")
-            .setTitle(`${track.title} now playing!`)
+            .setTitle(track.title)
             .setDescription(track.url)
+            .setThumbnail(track.thumbnail)
             .addFields(
                 {
                     name: "Requested by",
@@ -28,6 +29,11 @@ module.exports.createEvents = (client, player) => {
                 {
                     name: 'Views',
                     value: `\`${track.views}\``,
+                    inline: true
+                },
+                {
+                    name: 'Artist',
+                    value: `\`${track.author}\``,
                     inline: true
                 }
             );
@@ -74,9 +80,9 @@ module.exports.createEvents = (client, player) => {
         if (message.author.bot || !message.guild) return;
         if (!client.application?.owner) await client.application?.fetch();
 
-        if (message.content === "!deploy" && message.author.id === client.application?.owner?.id) {
+        if (message.content === "!deploy" && (message.member.permissions.has("ADMINISTRATOR") || message.author.id === client.application?.owner?.id)) {
             await message.guild.commands.set(client.commands).then(() => {
-                message.reply("Deployed!");
+                message.react("🎧");
             })
                 .catch((err) => {
                     message.reply("Could not deploy commands! Make sure the bot has the application.commands permission!");

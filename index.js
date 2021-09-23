@@ -7,6 +7,7 @@ const Discord = require("discord.js");
 const Client = require("./client/Client");
 
 const { Player } = require("discord-player");
+const downloader = require("@discord-player/downloader").Downloader;
 const { token } = require("./config.json");
 
 const { createEvents } = require("./events.js");
@@ -27,6 +28,7 @@ for (const file of commandFiles) {
 
 // Create events
 const player = new Player(client);
+player.use("YOUTUBE_DL", downloader);
 createEvents(client, player);
 
 client.once("ready", async () => {

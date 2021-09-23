@@ -21,11 +21,11 @@ module.exports = {
             });
         }
 
-        await interaction.deferReply();
+        await interaction.defer();
 
         const queue = player.getQueue(interaction.guildId);
 
-        if (!queue || !queue.playing) {
+        if (!queue) {
             return void interaction.reply({
                 embeds: [
                     {
@@ -37,7 +37,7 @@ module.exports = {
             });
         }
 
-        const success = queue.shuffle();
+        await queue.shuffle();
 
         return void interaction.reply({
             embeds: [
