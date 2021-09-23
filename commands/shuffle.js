@@ -1,8 +1,8 @@
 const { GuildMember } = require('discord.js');
 
 module.exports = {
-    name: 'pause',
-    description: 'Pause current song!',
+    name: 'shuffle',
+    description: 'Shuffle the queue!',
     async execute(interaction, player) {
         if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
             return void interaction.reply({
@@ -22,14 +22,31 @@ module.exports = {
         }
 
         await interaction.deferReply();
+
         const queue = player.getQueue(interaction.guildId);
-        if (!queue || !queue.playing)
-            return void interaction.followUp({
-                content: '❌ | No music is being played!',
+
+        if (!queue || !queue.playing) {
+            return void interaction.reply({
+                embeds: [
+                    {
+                        title: 'There is nothing playing!',
+                        description: "Use `/play` to add songs to the queue!",
+                        color: "#ffcc00"
+                    }
+                ]
             });
-        const success = queue.setPaused(true);
-        return void interaction.followUp({
-            content: success ? '⏸ | Paused!' : '❌ | Something went wrong!',
+        }
+
+        const success = queue.shuffle();
+
+        return void interaction.reply({
+            embeds: [
+                {
+                    title: 'Shuffled Queue!',
+                    description: "Enjoy your new mix!",
+                    color: "#34c759"
+                }
+            ]
         });
     },
 };
