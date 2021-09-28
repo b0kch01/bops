@@ -1,18 +1,5 @@
 const { GuildMember } = require('discord.js');
-
-function shortenQueueTitle(title) {
-    return title
-        .replace("(Official)", "")
-        .replace("(Official Video)", "")
-        .replace("(Official Music Video)", "")
-        .replace("(Official Audio)", "")
-        .replace("[Official Video]", "")
-        .replace("[Official Music Video]", "")
-        .replace("(Official Lyrics Video)", "")
-        .replace("(Official Lyrics)", "")
-        .replace("(Lyrics)", "")
-        .replace("(Audio)", "");
-}
+const { shortenQueueTitle } = require("../util/songutil");
 
 module.exports = {
     name: 'queue',
