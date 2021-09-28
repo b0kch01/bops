@@ -33,10 +33,10 @@ First, make sure you have all the required tools installed on your local machine
 
 ```bash
 # Clone the repository
-git clone https://github.com/TannerGabriel/discord-bot.git
+git clone https://github.com/b0kch01/bops/
 
 # Enter into the directory
-cd discord-bot/
+cd bops/
 
 # Install the dependencies
 npm install
@@ -88,11 +88,12 @@ Before you can use the bots slash command you first need to add them to your Dis
 
 `/stop`
 
+-   Shuffle queue (/shuffle)
+-   Play next (/playnext)
+-   Lyrics (/lyrics)
 -   Now Playing (/nowplaying)
 -   Get information about a user (/userinfo USER)
 -   Delete the latest chat messages (/purge NUM_OF_MESSAGES)
-
-<img src="./assets/playing_song.png">
 
 ## Common errors
 
