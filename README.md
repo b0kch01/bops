@@ -1,14 +1,25 @@
 <div align=center>
 
+<img src=https://cdn.discordapp.com/avatars/888244453431709766/1dab6d045ffd1decb9c4b370a72ce0f9.webp width=100 align="right">
+  
+<img src=https://cdn.discordapp.com/avatars/888244453431709766/1dab6d045ffd1decb9c4b370a72ce0f9.webp width=100 align="left">
+  
+
+  
+  
 # Bops
 
+  
 ```
-🌹 Play Good Songs Only
+~ Play Good Songs Only ~
+A Discord music bot! Mainly for private use.
 ```
-
+  
+  
+  
 </div>
 
-A Discord music bot! Mainly for private use.
+
 
 ## Table of Contents
 
