@@ -25,7 +25,7 @@ module.exports = {
 
         const queue = player.getQueue(interaction.guildId);
 
-        if (!queue || !queue.playing)
+        if (!queue)
             return void interaction.followUp({
                 embeds: [
                     {
