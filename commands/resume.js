@@ -23,10 +23,13 @@ module.exports = {
 
         await interaction.deferReply();
         const queue = player.getQueue(interaction.guildId);
-        if (!queue || !queue.playing)
+        if (!queue || !queue.playing) {
+            queue.play();
             return void interaction.followUp({
                 content: '❌ | No music is being played!',
             });
+        }
+
         const success = queue.setPaused(false);
         return void interaction.followUp({
             content: success ? '▶ | Resumed!' : '❌ | Something went wrong!',
