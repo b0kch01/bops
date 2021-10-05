@@ -25,8 +25,24 @@ module.exports = {
         const queue = player.getQueue(interaction.guildId);
         const currentTrack = queue.current;
         const success = queue.skip();
+
+        if (success)
+            return void interaction.followUp({
+                embeds: [
+                    {
+                        title: `Skipped **${currentTrack}**`,
+                        color: "#ffcc00"
+                    }
+                ]
+            });
+
         return void interaction.followUp({
-            content: success ? `✅ | Skipped **${currentTrack}**!` : '❌ | Something went wrong!',
+            embeds: [
+                {
+                    title: `Failed to skip song...`,
+                    color: "#ff2d55"
+                }
+            ]
         });
     },
 };
