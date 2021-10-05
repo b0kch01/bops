@@ -2,11 +2,33 @@ const Discord = require("discord.js");
 
 module.exports.createEvents = (client, player) => {
     player.on('error', (queue, error) => {
-        console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
+        queue.metadata.send({
+            embeds: [{
+                color: "#ff2d55",
+                title: "Can't read b0kch01's code...",
+                description: "Sorry, had to skip this song 😔",
+                fields: [{
+                    name: "Why?",
+                    value: "```" + error.message + "```"
+                }]
+            }]
+        });
+        console.error(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
     });
 
     player.on('connectionError', (queue, error) => {
-        console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
+        queue.metadata.send({
+            embeds: [{
+                color: "#ff2d55",
+                title: "Can't read b0kch01's code...",
+                description: "Had a connection error 😔",
+                fields: [{
+                    name: "Why?",
+                    value: "```" + error.message + "```"
+                }]
+            }]
+        });
+        console.error(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
     });
 
     player.on('trackStart', (queue, track) => {
@@ -24,11 +46,6 @@ module.exports.createEvents = (client, player) => {
                 {
                     name: 'Duration',
                     value: `\`${track.duration}\``,
-                    inline: true
-                },
-                {
-                    name: 'Views',
-                    value: `\`${track.views}\``,
                     inline: true
                 },
                 {
