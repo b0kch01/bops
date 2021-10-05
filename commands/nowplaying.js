@@ -44,14 +44,23 @@ module.exports = {
             interaction.editReply({
                 embeds: [
                     {
-                        title: 'Now Playing 🎧',
-                        description: `**${queue.current.title}**! (\`${queue.getPlayerTimestamp().progress}%\`)`,
+                        title: `[${queue.current.title}](${queue.current.url})`,
+                        description: queue.createProgressBar(),
                         fields: [
                             {
-                                name: '\u200b',
-                                value: queue.createProgressBar(),
+                                name: "Requested by",
+                                value: `${queue.current.requestedBy}`,
+                                inline: true
                             },
+                            {
+                                name: 'Artist',
+                                value: `\`${queue.current.author}\``,
+                                inline: true
+                            }
                         ],
+                        thumbnail: {
+                            url: queue.current.thumbnail,
+                        },
                         color: 0xfcfcfc,
                     },
                 ],
