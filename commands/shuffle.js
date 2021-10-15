@@ -1,4 +1,5 @@
 const { GuildMember } = require('discord.js');
+const { displayQueue } = require("../util/songutil");
 
 module.exports = {
     name: 'shuffle',
@@ -21,12 +22,10 @@ module.exports = {
             });
         }
 
-        await interaction.defer();
-
         const queue = player.getQueue(interaction.guildId);
 
         if (!queue) {
-            return void interaction.reply({
+            return void interaction.followUp({
                 embeds: [
                     {
                         title: 'There is nothing playing!',
@@ -38,15 +37,7 @@ module.exports = {
         }
 
         await queue.shuffle();
+        displayQueue(queue, interaction, "Enjoy your shuffled queue!");
 
-        return void interaction.reply({
-            embeds: [
-                {
-                    title: 'Shuffled Queue!',
-                    description: "Enjoy your new mix!",
-                    color: "#34c759"
-                }
-            ]
-        });
     },
 };

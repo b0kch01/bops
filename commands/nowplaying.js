@@ -1,4 +1,5 @@
 const { GuildMember } = require('discord.js');
+const { capitalize } = require('../util/songutil.js');
 
 module.exports = {
     name: 'nowplaying',
@@ -44,7 +45,7 @@ module.exports = {
             interaction.editReply({
                 embeds: [
                     {
-                        title: `[${queue.current.title}](${queue.current.url})`,
+                        title: queue.current.title,
                         description: queue.createProgressBar(),
                         fields: [
                             {
@@ -55,6 +56,11 @@ module.exports = {
                             {
                                 name: 'Artist',
                                 value: `\`${queue.current.author}\``,
+                                inline: true
+                            },
+                            {
+                                name: capitalize(queue.current.source),
+                                value: `[Share song](${queue.current.url})`,
                                 inline: true
                             }
                         ],
