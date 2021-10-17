@@ -26,7 +26,14 @@ for (const file of commandFiles) {
 }
 
 // Create events
-const player = new Player(client);
+const player = new Player(client,
+    {
+        ytdlOptions: {
+            quality: 'highestaudio',
+            highWaterMark: 1 << 25,
+        },
+    }
+);
 createEvents(client, player);
 
 client.once("ready", async () => {
