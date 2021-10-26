@@ -29,9 +29,11 @@ for (const file of commandFiles) {
 const player = new Player(client,
     {
         ytdlOptions: {
-            quality: 'highestaudio',
+            quality: "highest",
+            filter: "audioonly",
             highWaterMark: 1 << 25,
-        },
+            dlChunkSize: 0,
+        }
     }
 );
 createEvents(client, player);
