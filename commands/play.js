@@ -1,5 +1,6 @@
 const { GuildMember, MessageEmbed } = require('discord.js');
 const { QueryType } = require('discord-player');
+const playdl = require('play-dl');
 
 module.exports = {
     name: 'play',
@@ -43,11 +44,17 @@ module.exports = {
             if (!searchResult || !searchResult.tracks.length)
                 return void interaction.followUp({ content: 'No results were found!' });
 
+
             const queue = await player.createQueue(interaction.guild, {
                 metadata: interaction.channel,
                 leaveOnEmpty: false,
                 leaveOnEnd: false,
-                leaveOnEmptyCooldown: 5000
+                leaveOnEmptyCooldown: 5000,
+                async onBeforeCreateStream(track, source, _queue) {
+                    if (source === "youtube") {
+                        return (await playdl.stream(track.url)).stream;
+                    }
+                }
             });
 
             try {
