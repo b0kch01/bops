@@ -12,7 +12,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("#ffcc00")
             .setTitle("Thanks for using bops!")
-            .setDescription("Here are all the commands you can use:")
+            .setDescription("```Here are all the commands you can use:```")
             .addFields(
                 commandFiles.filter(file => {
                     return !(require("./" + file).hidden);

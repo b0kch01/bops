@@ -43,10 +43,8 @@ module.exports = {
             // remove characters between parentheses
             .replaceAll(/\([^)]*\)/g, "");
 
-        console.log(title);
         lyricsClient.search(title)
             .then(lyrics => {
-                console.log(lyrics);
                 interaction.editReply({
                     embeds: [
                         {

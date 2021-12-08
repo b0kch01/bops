@@ -97,7 +97,7 @@ module.exports.createEvents = (client, player) => {
         if (message.author.bot || !message.guild) return;
         if (!client.application?.owner) await client.application?.fetch();
 
-        if (message.content === "!deploy" && (message.member.permissions.has("ADMINISTRATOR") || message.author.id === client.application?.owner?.id)) {
+        if (message.content === "!deploy" && (message.member.permissions.has(Discord.Permissions.FLAGS.ADMINISTRATOR) || message.author.id === client.application?.owner?.id)) {
             await message.guild.commands.set(client.commands).then(() => {
                 message.react("🎧");
             })

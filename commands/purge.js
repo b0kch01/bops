@@ -25,7 +25,7 @@ module.exports = {
         });
 
         interaction.channel
-            .bulkDelete(fetched)
+            .bulkDelete(fetched, true)
             .then(() => {
                 interaction.reply({
                     content: `Succesfully deleted messages`,
