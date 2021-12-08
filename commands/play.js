@@ -52,7 +52,7 @@ module.exports = {
                 leaveOnEmptyCooldown: 5000,
                 async onBeforeCreateStream(track, source, _queue) {
                     if (track.url.startsWith("https://open.spotify.com")) {
-                        let searched = await playdl.search(track.title + " " + track.artist);
+                        let searched = await playdl.search(track.title + " " + track.author);
                         return (await playdl.stream(searched[0].url)).stream;
                     }
                     return (await playdl.stream(track.url)).stream;

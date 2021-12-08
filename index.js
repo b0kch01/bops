@@ -57,7 +57,7 @@ client.once("ready", async () => {
     );
 
 
-    client.user.setActivity("bops", {
+    client.user.setActivity("bops ✧ [/help]", {
         type: "LISTENING"
     });
 });
