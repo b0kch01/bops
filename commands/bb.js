@@ -44,7 +44,9 @@ module.exports = {
             });
 
             setTimeout(() => {
-                const filters = queue.getFiltersEnabled().join("\n");
+                let filters = queue.getFiltersEnabled().join("\n");
+                if (filters.length < 0) filters = "*None*";
+
                 return void interaction.followUp({
                     embeds: [
                         {
