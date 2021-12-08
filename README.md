@@ -1,15 +1,22 @@
 <div align=center>
 
+    
+  
+  
 <img src=https://cdn.discordapp.com/avatars/888244453431709766/1dab6d045ffd1decb9c4b370a72ce0f9.webp width=100 align="right">
   
 <img src=https://cdn.discordapp.com/avatars/888244453431709766/1dab6d045ffd1decb9c4b370a72ce0f9.webp width=100 align="left">
    
-# Bops
+# Bops<br>![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) ![Discord](https://img.shields.io/badge/%3CServer%3E-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white)
+  
 
+  
+  
 ```
 ~ Play Good Songs Only ~
 A Discord music bot! Mainly for private use.
 ```
+
   
 </div>
 
