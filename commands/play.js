@@ -41,9 +41,9 @@ module.exports = {
                     searchEngine: QueryType.AUTO,
                 })
                 .catch(() => { });
+
             if (!searchResult || !searchResult.tracks.length)
                 return void interaction.followUp({ content: 'No results were found!' });
-
 
             const queue = await player.createQueue(interaction.guild, {
                 metadata: interaction.channel,
@@ -52,7 +52,7 @@ module.exports = {
                 leaveOnEmptyCooldown: 5000,
                 async onBeforeCreateStream(track, source, _queue) {
                     if (track.url.startsWith("https://open.spotify.com")) {
-                        let searched = await playdl.search(track.title);
+                        let searched = await playdl.search(track.title + " " + track.artist);
                         return (await playdl.stream(searched[0].url)).stream;
                     }
                     return (await playdl.stream(track.url)).stream;
