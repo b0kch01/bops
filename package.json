@@ -1,8 +1,8 @@
 {
     "name": "music-bot",
     "version": "1.0.0",
-    "repository": "https://github.com/TannerGabriel/discord-music-bot.git",
-    "description": "A simple discord music bot",
+    "repository": "https://github.com/b0kch01/bops.git",
+    "description": "Private discord music bot",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,14 +12,14 @@
         "music",
         "bot"
     ],
-    "author": "Gabriel Tanner",
+    "author": "Nathan Choi",
     "license": "MIT",
     "dependencies": {
         "@discord-player/downloader": "^3.0.1",
         "@discord-player/extractor": "^3.0.2",
         "@discordjs/opus": "^0.6.0",
         "chalk": "^4.1.2",
-        "discord-player": "^5.2.0",
+        "discord-player": "EwoX07/discord-player#patch-1",
         "discord.js": "^13.1.0",
         "ffmpeg": "0.0.4",
         "ffmpeg-static": "^4.4.0",
@@ -27,6 +27,6 @@
         "fluent-ffmpeg": "^2.1.2",
         "gradient-string": "^1.2.0",
         "play-dl": "^1.4.6",
-        "ytdl-core": "^4.9.1"
+        "ytdl-core": "^4.10.0"
     }
 }

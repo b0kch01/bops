@@ -8,9 +8,7 @@ module.exports = class extends Client {
         });
 
         this.commands = new Collection();
-
         this.queue = new Map();
-
         this.config = config;
     }
 };

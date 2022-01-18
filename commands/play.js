@@ -1,6 +1,5 @@
 const { GuildMember, MessageEmbed } = require('discord.js');
 const { QueryType } = require('discord-player');
-const playdl = require('play-dl');
 
 module.exports = {
     name: 'play',
@@ -49,14 +48,7 @@ module.exports = {
                 metadata: interaction.channel,
                 leaveOnEmpty: false,
                 leaveOnEnd: false,
-                leaveOnEmptyCooldown: 5000,
-                async onBeforeCreateStream(track, source, _queue) {
-                    if (track.url.startsWith("https://open.spotify.com")) {
-                        let searched = await playdl.search(track.title + " " + track.author);
-                        return (await playdl.stream(searched[0].url)).stream;
-                    }
-                    return (await playdl.stream(track.url)).stream;
-                }
+                leaveOnEmptyCooldown: 5000
             });
 
             try {
