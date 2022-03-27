@@ -19,7 +19,7 @@
         "@discord-player/extractor": "^3.0.2",
         "@discordjs/opus": "^0.6.0",
         "chalk": "^4.1.2",
-        "discord-player": "^5.2.2",
+        "discord-player": "5.0.2",
         "discord.js": "^13.1.0",
         "ffmpeg": "0.0.4",
         "ffmpeg-static": "^4.4.0",

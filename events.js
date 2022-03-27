@@ -2,6 +2,10 @@ const Discord = require("discord.js");
 
 module.exports.createEvents = (client, player) => {
     player.on('error', (queue, error) => {
+        console.error(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
+
+        if (error.message.includes('[DestroyedQueue]')) return;
+
         queue.metadata.send({
             embeds: [{
                 color: "#ff2d55",
@@ -13,7 +17,7 @@ module.exports.createEvents = (client, player) => {
                 }]
             }]
         });
-        console.error(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
+
     });
 
     player.on('connectionError', (queue, error) => {

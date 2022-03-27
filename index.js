@@ -29,9 +29,9 @@ for (const file of commandFiles) {
 const player = new Player(client,
     {
         ytdlOptions: {
-            quality: "highest",
+            quality: "highestaudio",
             filter: "audioonly",
-            highWaterMark: 1 << 25,
+            highWaterMark: 1 << 30,
             dlChunkSize: 0,
         }
     }
