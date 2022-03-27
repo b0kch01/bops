@@ -19,7 +19,7 @@
         "@discord-player/extractor": "^3.0.2",
         "@discordjs/opus": "^0.6.0",
         "chalk": "^4.1.2",
-        "discord-player": "EwoX07/discord-player#patch-1",
+        "discord-player": "^5.2.2",
         "discord.js": "^13.1.0",
         "ffmpeg": "0.0.4",
         "ffmpeg-static": "^4.4.0",
@@ -27,6 +27,6 @@
         "fluent-ffmpeg": "^2.1.2",
         "gradient-string": "^1.2.0",
         "play-dl": "^1.4.6",
-        "ytdl-core": "^4.10.0"
+        "ytdl-core": "^4.11.0"
     }
 }
